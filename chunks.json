@@ -1,0 +1,87 @@
+[
+  {
+    "filename": "01-getting-started.md",
+    "section": "# NimbusNote \u2014 Getting Started",
+    "text": "NimbusNote is a lightweight note-syncing service used internally for this exercise. It is fictional \u2014 do not look for a real product by this name."
+  },
+  {
+    "filename": "01-getting-started.md",
+    "section": "Creating a workspace",
+    "text": "Every user starts by creating a workspace. A workspace is identified by a lowercase slug (letters, numbers, and hyphens only) and can hold up to 50 notebooks on the Free plan, or unlimited notebooks on the Pro plan.\n\nTo create a workspace, send a `POST /workspaces` request with a `name` field. The server responds with a `workspace_id` that you'll use in every subsequent request."
+  },
+  {
+    "filename": "01-getting-started.md",
+    "section": "Creating your first note",
+    "text": "Notes belong to notebooks, and notebooks belong to workspaces. A brand-new workspace automatically gets one notebook called \"Inbox\". You can create a note directly inside Inbox with `POST /notebooks/{id}/notes`.\n\nNotes support Markdown formatting. Images are not supported in the Free plan; Pro plan workspaces can attach up to 20MB of images per note."
+  },
+  {
+    "filename": "01-getting-started.md",
+    "section": "Sync behavior",
+    "text": "NimbusNote syncs every 15 seconds while the app is in the foreground, and every 5 minutes in the background. If two devices edit the same note within that sync window, NimbusNote keeps both versions as separate note revisions rather than silently merging them \u2014 the user is asked to pick which version to keep the next time they open the note."
+  },
+  {
+    "filename": "01-getting-started.md",
+    "section": "Offline mode",
+    "text": "All notes are available offline once they've synced at least once. Notes created while offline are queued and sync automatically once the connection returns. There is no limit to how long a note can stay queued offline."
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "# NimbusNote \u2014 Pricing and Plans",
+    "text": "NimbusNote offers three plans: Free, Pro, and Team."
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Free plan",
+    "text": "- Up to 50 notebooks per workspace\n- 5 collaborators per workspace\n- No image attachments\n- 30-day note history"
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Pro plan \u2014 $6/month per workspace",
+    "text": "- Unlimited notebooks\n- 20 collaborators per workspace\n- Image attachments up to 20MB per note\n- Unlimited note history\n- Priority sync (every 5 seconds instead of 15)"
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Team plan \u2014 $10/month per seat",
+    "text": "- Everything in Pro\n- Unlimited collaborators\n- Admin controls: enforce SSO, audit log, workspace-wide export\n- A dedicated support channel with a 4-hour response SLA on business days"
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Switching plans",
+    "text": "You can upgrade or downgrade at any time from the workspace settings page. Upgrades take effect immediately. Downgrades take effect at the end of the current billing cycle \u2014 you keep Pro/Team features until then, and NimbusNote will warn you if you're using something (like more than 50 notebooks) that won't fit on the plan you're downgrading to."
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Refunds",
+    "text": "NimbusNote does not offer prorated refunds for early cancellation. If you cancel Team or Pro mid-cycle, you keep access until the cycle ends, and you are not billed again."
+  },
+  {
+    "filename": "02-pricing-and-plans.md",
+    "section": "Student discount",
+    "text": "Workspaces verified as belonging to a student (via a `.edu` email or equivalent) get 50% off the Pro plan. There is currently no student discount on the Team plan."
+  },
+  {
+    "filename": "03-troubleshooting.md",
+    "section": "\"My note didn't sync\"",
+    "text": "First check the sync indicator in the top-right corner of the app. A grey cloud icon means the note is queued but hasn't synced yet \u2014 this is normal if you're offline. A red cloud icon means sync failed after retrying, and usually means your session has expired; sign out and back in to fix it.\n\nIf the icon is green but changes still aren't showing on your other device, it's almost always because the other device is more than 5 minutes stale in the background \u2014 bring the app to the foreground on that device to force an immediate sync."
+  },
+  {
+    "filename": "03-troubleshooting.md",
+    "section": "\"I see two versions of the same note\"",
+    "text": "This happens when the same note was edited on two devices within the same sync window (see the Getting Started guide for how sync timing works). NimbusNote does not auto-merge conflicting edits. Open the note and use the \"Compare versions\" button to manually pick which version to keep, or keep both as separate notes."
+  },
+  {
+    "filename": "03-troubleshooting.md",
+    "section": "\"I can't upload an image\"",
+    "text": "Image attachments are a Pro and Team plan feature only. If you're on the Free plan, uploading an image will show an upgrade prompt instead of an error. If you're on Pro or Team and still can't upload, check that the image is under the 20MB limit \u2014 larger files fail silently in the current app version, which is a known issue on the roadmap to fix."
+  },
+  {
+    "filename": "03-troubleshooting.md",
+    "section": "\"My workspace says it's over its notebook limit\"",
+    "text": "This happens only on the Free plan (50 notebook cap) after a downgrade from Pro or Team. You won't lose any notebooks, but you won't be able to create new ones until you're back under the limit or you upgrade again."
+  },
+  {
+    "filename": "03-troubleshooting.md",
+    "section": "Account recovery",
+    "text": "If you're locked out, use the \"Forgot password\" link on the sign-in page. Password reset emails expire after 1 hour. There is currently no SMS-based recovery option."
+  }
+]

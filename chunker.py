@@ -1,4 +1,4 @@
-import os,re
+import json
 
 file_1=open("data/01-getting-started.md",'r',encoding='utf-8')
 file_2=open("data/02-pricing-and-plans.md",'r',encoding='utf-8')
@@ -27,4 +27,5 @@ for c in chunk3:
           list_.append(dict_)
 
 
-print(list_)
+with open("chunks.json", "w", encoding="utf-8") as f:
+    json.dump(list_, f, indent=2)
