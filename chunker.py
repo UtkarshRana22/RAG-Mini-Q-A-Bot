@@ -11,6 +11,7 @@ str=''
 dict_={}
 list_=[]
 for c in chunk1:
+     
      parts=c.split("\n\n")
      dict_={"filename":"01-getting-started.md","section":parts[0].strip(),"text":"\n\n".join(parts[1:]).strip()}
      if dict_["text"]:

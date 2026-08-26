@@ -7,15 +7,19 @@ def load_index(path="index.pkl"):
         return pickle.load(f)
 
 def cosine_similarity(a, b):
-    # TODO: compute cosine similarity between two vectors a and b
+   
     similarity=np.dot(a,b)/np.linalg.norm(a)*np.linalg.norm(b)
     return similarity
 
 def retrieve(question, chunks, model, top_k=3):
     question_embedding = model.encode([question])[0]
     for chunk in chunks:
-        score = cosine_similarity(question_embedding, chunk["embedding"])
-        chunk["score"] = score
+        try:
+            score = cosine_similarity(question_embedding, chunk["embedding"])
+            chunk["score"] = score
+        except:
+            chunk["score"]=0
+       
     ranked = sorted(chunks, key=lambda c: c["score"], reverse=True)
     return ranked[:top_k]
 if __name__ == "__main__":
