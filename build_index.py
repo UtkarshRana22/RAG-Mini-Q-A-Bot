@@ -8,7 +8,7 @@ def load_chunks(path="chunks.json"):
 
 def build_index(chunks, model_name="all-MiniLM-L6-v2"):
     model = SentenceTransformer(model_name)
-    texts = [f"{c['section']}. {c['text']}" for c in chunks]
+    texts = [f"{c['section']}. {c['text']}" for c in chunks if not c["section"].startswith("#")]
     embeddings = model.encode(texts)
     for chunk, embedding in zip(chunks, embeddings):
         chunk["embedding"] = embedding

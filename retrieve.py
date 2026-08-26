@@ -22,7 +22,7 @@ if __name__ == "__main__":
     chunks = load_index()
     model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    question = "How much does the Pro plan cost?"
+    question = "Does NimbusNote have a mobile widget?"
     results = retrieve(question, chunks, model, top_k=3)
 
     for r in results:
