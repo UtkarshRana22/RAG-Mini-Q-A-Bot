@@ -32,10 +32,10 @@ def querier(question):
     context=''
     for r in results:
         
-        print(f"[{r['score']:.3f}] {r['filename']} — {r['section']}")
+       # print(f"[{r['score']:.3f}] {r['filename']} — {r['section']}")
         if r['score']>THRESH_HOLD:
             if context=='':
-                context+=f"[{r['score']:.3f}] {r['section']} — {r['text']}"
+                context+=f"[{r['score']:.3f}] {r['filename']} {r['section']} — {r['text']}"
             else:
-                context+='\n'+f"[{r['score']:.3f}] {r['section']} — {r['text']}"
+                context+='\n'+f"[{r['score']:.3f}] {r['filename']} {r['section']} — {r['text']}"
     return context

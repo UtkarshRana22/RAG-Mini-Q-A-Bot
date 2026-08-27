@@ -17,7 +17,8 @@ not always listed first -- read all of them before deciding.
 
 Rules:
 1. If any passage actually answers the question, answer using it and cite the
-   file and section it came from.
+   file and section it came from in the end like this  
+   Citation: file and section
 2. If none of the passages actually answer the question, say clearly that the
    documents don't cover this. Do not guess, and do not use outside knowledge.
 
@@ -47,4 +48,4 @@ if __name__ == "__main__":
         if question.lower() == "quit":
             break
         answer, results = answer_question(question)
-        print(f"\nAnswer: {answer}")
+        print(f"\n\nAnswer: {answer}")
