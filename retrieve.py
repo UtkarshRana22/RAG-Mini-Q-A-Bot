@@ -9,7 +9,7 @@ def load_index(path="index.pkl"):
 
 def cosine_similarity(a, b):
    
-    similarity=np.dot(a,b)/np.linalg.norm(a)*np.linalg.norm(b)
+    similarity=np.dot(a,b)/(np.linalg.norm(a)*np.linalg.norm(b))
     return similarity
 
 def retrieve(question, chunks, model, top_k=3):
